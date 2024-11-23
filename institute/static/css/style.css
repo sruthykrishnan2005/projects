@@ -1,156 +1,53 @@
-/* General Styles */
-body {
-    font-family: 'Arial', sans-serif;
-    line-height: 1.6;
-    margin: 0;
-    padding: 0;
-    color: #333;
+/* Adjusting the size of the carousel images */
+#demo .carousel-inner img {
+    width: 100%;
+    height: 500px;  /* Adjust the height to fit your design */
+    object-fit: cover;  /* Ensures that the image fills the area without distorting */
 }
 
-/* Navbar */
-.navbar {
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+/* Styling the carousel indicators (dots) */
+.carousel-indicators button {
+    background-color: rgba(0, 0, 0, 0.5);  /* Semi-transparent dark color */
+    border-radius: 50%;
+    width: 12px;
+    height: 12px;
+    transition: background-color 0.3s;
 }
 
-.navbar-brand {
-    font-size: 1.5rem;
-    font-weight: bold;
-    color: #fff;
+.carousel-indicators .active {
+    background-color: #007bff;  /* Highlight the active dot with a blue color */
 }
 
-.navbar-nav .nav-link {
-    font-size: 1.1rem;
-    margin-right: 15px;
-    color: #fff !important;
+
+/* Style the carousel control buttons (previous/next arrows) */
+.carousel-control-prev-icon,
+.carousel-control-next-icon {
+    background-color: rgba(0, 0, 0, 0.5);  /* Semi-transparent dark background for arrows */
+    border-radius: 50%;  /* Make the arrow buttons round */
+    padding: 10px;
 }
 
-.navbar-nav .nav-link:hover {
-    color: #f8d210 !important;
-    transition: color 0.3s ease-in-out;
+/* Hover effect on the control buttons */
+.carousel-control-prev:hover,
+.carousel-control-next:hover {
+    background-color: rgba(0, 0, 0, 0.7);  /* Darker background on hover */
 }
 
-/* Hero Section */
-.hero {
-    background: linear-gradient(to bottom, #5e60ce, #7400b8);
-    color: #fff;
-    padding: 100px 20px;
-}
-
-.hero h1 {
-    font-size: 3rem;
-    font-weight: bold;
-    margin-bottom: 20px;
-}
-
-.hero p {
-    font-size: 1.25rem;
-    margin-bottom: 20px;
-}
-
-.hero .btn {
-    font-size: 1.2rem;
-    padding: 10px 20px;
-}
-
-/* Services Section */
-.services {
-    background: #f8f9fa;
-}
-
-.services h2 {
-    font-size: 2.5rem;
+/* Optional: Add space below the carousel for content */
+.carousel-inner {
     margin-bottom: 30px;
-    font-weight: bold;
-    color: #5e60ce;
 }
 
-.card {
-    border: none;
-    transition: transform 0.3s ease-in-out;
-    background-color: #fff;
+/* Add a border around the carousel (optional) */
+#demo {
+    border: 5px solid #ddd;  /* Light grey border */
+    border-radius: 15px;  /* Rounded corners */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);  /* Light shadow effect */
 }
+          
 
-.card:hover {
-    transform: scale(1.05);
-    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
-}
 
-.card-title {
-    font-size: 1.5rem;
-    color: #5e60ce;
-    font-weight: bold;
-}
 
-.card-text {
-    font-size: 1rem;
-    color: #555;
-}
 
-/* Testimonials Section */
-.testimonials {
-    background: #fff;
-}
 
-.testimonials h2 {
-    font-size: 2.5rem;
-    margin-bottom: 30px;
-    font-weight: bold;
-    color: #7400b8;
-}
 
-.blockquote {
-    font-size: 1.1rem;
-    font-style: italic;
-    border-left: 5px solid #5e60ce;
-    padding-left: 15px;
-    margin: 20px;
-    color: #555;
-}
-
-.blockquote-footer {
-    color: #5e60ce;
-    font-size: 0.9rem;
-}
-
-/* Contact Section */
-.contact {
-    background: #5e60ce;
-    color: #fff;
-    padding: 60px 20px;
-}
-
-.contact h2 {
-    font-size: 2.5rem;
-    margin-bottom: 20px;
-    font-weight: bold;
-}
-
-.contact p {
-    font-size: 1.2rem;
-}
-
-.contact .btn {
-    background: #fff;
-    color: #5e60ce;
-    font-size: 1.2rem;
-    font-weight: bold;
-    padding: 10px 20px;
-}
-
-.contact .btn:hover {
-    background: #f8d210;
-    color: #333;
-    transition: background 0.3s ease-in-out, color 0.3s ease-in-out;
-}
-
-/* Footer */
-.footer {
-    background: #333;
-    color: #fff;
-    padding: 20px;
-}
-
-.footer p {
-    margin: 0;
-    font-size: 0.9rem;
-}
