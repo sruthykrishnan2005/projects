@@ -1,23 +1,15 @@
-from django.shortcuts import render,redirect
-from django.contrib.auth import authenticate,login,logout
-from .models import Service, Testimonial
-# Home page view
+from django.shortcuts import render
+from .models import Course
 
+def home_view(request):
+    nav_links = Course.objects.filter()  # Fetch active links
+    return render(request, 'home.html', {'nav_links': nav_links})
 
+def about_view(request):
+    nav_links = Course.objects.filter()
+    return render(request, 'about.html', {'nav_links': nav_links})
 
-
-def home(request):
-        services = Service.objects.all()
-        testimonials = Testimonial.objects.all()
-        return render(request, 'home.html', {'services': services, 'testimonials': testimonials})
-
-
-
-# About page view
-def about(request):
-    return render(request, 'about.html')
-
-# Contact Us page view
-def contact(request):
-    return render(request, 'contact.html')
-
+def contact_view(request):
+    nav_links = Course.objects.filter()
+    return render(request, 'contact.html', {'nav_links': nav_links})
+  

@@ -1,10 +1,9 @@
 
-from django.contrib import admin
 from django.urls import path
-from . import views  # Import your views
+from . import views
 
 urlpatterns = [
-    path('', views.home),         # Home page
-    path('about/', views.about), # About page
-    path('contact/', views.contact), # Contact Us page
+    path('', views.home_view),
+    path('about/', views.about_view),
+    path('contact/', views.contact_view),
 ]
