@@ -2,6 +2,9 @@ from django.shortcuts import render,redirect
 from django.contrib.auth import authenticate,login
 from django.contrib import messages
 from .models import *
+from django.http import HttpResponse
+from .models import Contact
+
 
 # Create your views here.
 
@@ -31,8 +34,8 @@ def home(request):
     return render(request, 'home.html')
 
 
-def contact(request):
-    return render(request, 'contact.html')
+# def contact(request):
+#     return render(request, 'contact.html')
 
 def about(request):
     return render(request,'about.html')
@@ -40,3 +43,15 @@ def about(request):
 def course(request):
     data=Course.objects.all()
     return render(request,'course.html',{'course':data})
+
+def contact(request):
+    if request.method == 'POST':
+        name=request.POST.get('name')
+        phno=request.POST.get('phno')
+        email=request.POST.get('email')
+        # if name and phno and email:
+        data=Contact.objects.create(name=name,phone_number=phno,email=email)
+        data.save()
+        
+    return render(request,'contact.html')
+            
