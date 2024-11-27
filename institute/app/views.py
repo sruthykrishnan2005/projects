@@ -2,9 +2,7 @@ from django.shortcuts import render,redirect
 from django.contrib.auth import authenticate,login
 from django.contrib import messages
 from .models import *
-from django.http import HttpResponse
 from .models import Contact
-
 
 # Create your views here.
 
@@ -54,4 +52,7 @@ def contact(request):
         data.save()
         
     return render(request,'contact.html')
-            
+
+
+def detail(request):
+    return render(request,'detail.html')
