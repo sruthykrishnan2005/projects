@@ -4,9 +4,8 @@ from django.contrib import messages
 from .models import *
 from django.contrib.auth.models import User
 
-
 # Create your views here.
-def login(req):
+def e_login(req):
     if req.method=='POST':
         Username=req.POST['username']
         Password=req.POST['password']
@@ -17,32 +16,32 @@ def login(req):
         
         else:
             messages.warning(req, "invalid password")
-            return redirect(login)
+            return redirect(e_login)
     else:
         return render(req,'login.html')
-
-
-def logout(req):
-    logout(req)
-    return redirect(login)
     
+        
+def e_logout(req):
+    logout(req)
+    return redirect(e_login)
     
 def register(req):
     if req.method=='POST':
-        uname=req.POST['uname']
+        username=req.POST['uname']
         email=req.POST['email']
         password=req.POST['password']
+        
+        
         try:
-            data=User.objects.create_user(first_name=uname,email=email,username=email,password=password)
+            data=User.objects.create_user(first_name=username,email=email,username=email,password=password)
             data.save()
         except:
-            messages.warning(req,"email alreadyin use")
+            messages.warning(req,"username already exist")
             return redirect(register)
-        return redirect(login)
+        return redirect(e_login)
     else:
         return render(req,'register.html')
     
 def home(req):
-   return render(req,'home.html')
-    
-    
+    return render(req,'home.html')
+
