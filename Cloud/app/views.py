@@ -2,7 +2,10 @@ from django.shortcuts import render,redirect
 from django.contrib.auth import authenticate,login,logout
 from django.contrib import messages
 from .models import *
+from .forms import Fileform
+from .models import File
 from django.contrib.auth.models import User
+
 
 # Create your views here.
 def e_login(req):
@@ -31,7 +34,6 @@ def register(req):
         email=req.POST['email']
         password=req.POST['password']
         
-        
         try:
             data=User.objects.create_user(first_name=username,email=email,username=email,password=password)
             data.save()
@@ -42,6 +44,23 @@ def register(req):
     else:
         return render(req,'register.html')
     
+def view(req):
+    files = File.objects.all()
+    return render(req,'view.html',{'files':files})
+
+
+def add(request):
+    if request.method == 'POST' and request.FILES.get('file'):
+        form = FileForm(request.POST, request.FILES)
+        if form.is_valid():
+            form.save()
+            return redirect('file_list')  
+    else:
+        form = FileForm()
+    
+    return render(request, 'add.html', {'form': form})
+
 def home(req):
-    return render(req,'home.html')
+    return render(req, 'home')
+
 
