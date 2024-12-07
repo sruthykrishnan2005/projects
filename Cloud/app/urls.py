@@ -5,6 +5,6 @@ urlpatterns=[
     path('logout',views.e_logout),
     path('login',views.e_login),
     path('register',views.register),
-    path('view/',views.view),
+    path('view/', views.file_list, name='file_view'),
     path('add/',views.add),
 ]
